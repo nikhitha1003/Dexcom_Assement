@@ -1,6 +1,7 @@
 import requests
 import json
-
+# Verify actual response and expected response are match
+# input values Base url, End point, Response
 def endpoint_response(base_url, relative_url, expected_response):
     actual_response = requests.get(base_url + relative_url)
     if actual_response.status_code == expected_response:
@@ -11,7 +12,8 @@ def endpoint_response(base_url, relative_url, expected_response):
                                                                                        expected_response))
         return "FAIL"
 
-
+# Verify actual Content_type and expected ContentType 
+# Input values return value of endpoint_response, Media type
 def verify_content_type(response, media_type):
     if response.headers['Content-Type'].count(media_type) != 1:
         print("FAIL : Actual Content-Type {} is not equal to expected media type i.e., {}".format(
@@ -21,7 +23,8 @@ def verify_content_type(response, media_type):
         print("PASS: Actual Content-Type is equal to expected media type i.e., {}".format(media_type))
         return "PASS"
 
-
+# Verify the param are as expected
+# Input values return value of endpoint_response, UDI / Device Identifier,UDI / Production Identifier,Part Number (PN),Sub-Components Name, Sub-Components Name
 def verify_params(response, expected_pname, expected_di, expected_pi, expected_pn, expected_name, expected_name2):
     params = response.json();
     for temp in params:
