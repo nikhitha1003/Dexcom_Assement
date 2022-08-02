@@ -30,43 +30,46 @@ def verify_params(response, expected_pname, expected_di, expected_pi, expected_p
     for temp in params:
         if temp['Product Name'] == expected_pname:
             if temp['UDI / Device Identifier'] == expected_di:
-                print("PASS: Expected UDI / Device Identifier is equal to expected Device Identifier i.e., {}".format(
+                print("PASS: Actual  UDI / Device Identifier is equal to expected Device Identifier i.e., {}".format(
                     expected_di))
             else:
                 print(
-                    "FAIL : Expected UDI / Device Identifier {} is not equal to expected Device Identifier i.e., {}".format(
+                    "FAIL : Actual  UDI / Device Identifier {} is not equal to expected Device Identifier i.e., {}".format(
                         temp['UDI / Device Identifier'], expected_di))
             if temp['UDI / Production Identifier']['Version'] == expected_pi:
                 print(
-                    "PASS: Expected UDI / Production Identifier is equal to expected Production Identifier i.e., {}".format(
+                    "PASS: Actual  UDI / Production Identifier is equal to expected Production Identifier i.e., {}".format(
                         expected_pi))
             else:
                 print(
-                    "FAIL : Expected UDI / Production Identifier {} is not equal to expected Production Identifier i.e., {}".format(
+                    "FAIL : Actual  UDI / Production Identifier {} is not equal to expected Production Identifier i.e., {}".format(
                         temp['UDI / Production Identifier']['Version'], expected_pi))
             if temp['UDI / Production Identifier']['Part Number (PN)'] == expected_pn:
                 print(
-                    "PASS: Expected UDI / Part Number (PN) is equal to expected Production Identifier i.e., {}".format(
+                    "PASS: Actual  UDI / Part Number (PN) is equal to expected Production Identifier i.e., {}".format(
                         expected_pn))
             else:
                 print(
-                    "FAIL : Expected UDI / Part Number (PN) {} is not equal to expected Production Identifier i.e., {}".format(
+                    "FAIL : Actual  UDI / Part Number (PN) {} is not equal to expected Production Identifier i.e., {}".format(
                         temp['UDI / Production Identifier']['Part Number (PN)'],
                         expected_pn))
             if temp['UDI / Production Identifier']['Sub-Components'][0]['Name'] == expected_name:
-                print("PASS: Expected Sub-Components Name is equal to expected Production Identifier i.e., {}".format(
+                print("PASS: Actual  Sub-Components Name is equal to expected Production Identifier i.e., {}".format(
                     expected_name))
             else:
                 print(
-                    "FAIL : Expected Sub-Components Name {} is not equal to expected Production Identifier i.e., {}".format(
+                    "FAIL : Actual  Sub-Components Name {} is not equal to expected Production Identifier i.e., {}".format(
                         temp['UDI / Production Identifier']['Sub-Components'][0]['Name'],
                         expected_name))
             if temp['UDI / Production Identifier']['Sub-Components'][0]['Name'] == expected_name2:
-                print("PASS: Expected Sub-Components Name is equal to expected Production Identifier i.e., {}".format(
+                print("PASS: Actual  Sub-Components Name is equal to expected Production Identifier i.e., {}".format(
                     expected_name2))
             else:
                 print(
-                    "FAIL : Expected Sub-Components Name {} is not equal to expected Production Identifier i.e., {}".format(
+                    "FAIL : Actual  Sub-Components Name {} is not equal to expected Production Identifier i.e., {}".format(
                         temp['UDI / Production Identifier']['Sub-Components'][0]['Name'],
                         expected_name2))
+            return
+        print("FAIL : Actual Product Name {} is not equal to expected Product Name i.e., {}".format(
+                        temp['Product Name'], expected_pname))
 
